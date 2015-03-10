@@ -4,24 +4,34 @@ from django.template import RequestContext, loader
 
 
 def index(request):
-    message = 'This is the main page'
-    context = {'message': message}
+    msg = 'This is the main page'
+    context = {'msg': msg}
     return render(request, 'store/index.html', context)
 
 def about(request):
-    return HttpResponse('This is the about page')
+    msg = 'This is the "about" page'
+    context = {'msg': msg}
+    return render(request, 'store/about.html', context)
 
 def gallery(request):
-    return HttpResponse('This is the gallery page')
+    msg = 'This is the gallery page'
+    context = {'msg': msg}
+    return render(request, 'store/gallery.html', context)
 
 def shop(request):
-    return HttpResponse('This is the shop page')
+    msg = 'This is the shopping page'
+    context = {'msg': msg}
+    return render(request, 'store/shop.html', context)
 
 def join(request):
-    return HttpResponse('This is the page on which you set up your account')
+    msg = 'This is where you sign up to join'
+    context = {'msg': msg}
+    return render(request, 'store/join.html', context)
 
 def sign_in(request):
-    return HttpResponse('This is where you sign in')
+    msg = 'This is where users log in'
+    context = {'msg': msg}
+    return render(request, 'store/sign_in.html', context)
 
 def terms(request):
     return HttpResponse('This displays the terms of the site')

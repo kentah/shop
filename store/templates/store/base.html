@@ -15,20 +15,14 @@
 
 	<title>{% block page_title%}{% endblock %}</title>
  
-	{% block stylesheets %}
+	{% block stylesheets %}{% endblock stylesheets %}
 
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" media=screen />
-	<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}" type="text/css" media=screen />
-
-	{% endblock %}
-	
+	<link  href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media=screen />
     </head>
-    <body class="{% block body_class %}{% endblock %}" {% block body_attributes %}{% endblock %}>
-	{% block body %}
+
 	
 	<header>
-	    {% block header %}{% endblock %}
-	</header>
+	    {% block header %}
 	
 	<nav class="navbar navbar-default navbar-static-top navbar-inverse">
 	    <div class="container-fluid">
@@ -40,17 +34,17 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		    </button>
-		    <a class="navbar-brand active" href="index.html"><span class="sr-only glyphicon glyphicon-knight">(current)</span> Home</a>
+		    <a class="navbar-brand active" href="{% url 'index' %}"><span class="sr-only glyphicon glyphicon-knight">(current)</span> Home</a>
 		</div>
 		
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		    <ul class="nav navbar-nav">
-			<li><a href="gallery.html">Gallery</a></li>
-			<li><a href="about.html">About</a></li>
-			<li><a href="shop.html">Shop</a></li>
-			<li><a href="login.html">Log in</a></li>
-			<li><a href="signup.html">Sign Up</a></li>
+			<li><a href="{% url 'gallery' %}">Gallery</a></li>
+			<li><a href="{% url 'about' %}">About</a></li>
+			<li><a href="{% url 'shop' %}">Shop</a></li>
+			<li><a href="{% url 'sign_in' %}">Sign In</a></li>
+			<li><a href="{% url 'join' %}">Join</a></li>
 			
 		    </ul>
 		    <form class="navbar-form navbar-left" role="search">
@@ -59,14 +53,19 @@
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		    </form>
+		    <div class="navbar-header nav navbar-nav container-fluid"><h3 style="color: white;">CheriLasher.com</h3></div>
 		</div><!--/.navbar-collapse -->
 	    </div><!-- /.container-fluid -->
 	</nav>	
 	    </div>
 	    </div>
 	    {% endblock %}
-    </body>
-
-    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+	    </header>
+	    <body class="{% block body_class %}{% endblock %}" {% block body_attributes %}{% endblock %}>
+		{% block body %}
+		{% endblock %}
+	    </body>
+    
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 </html>
 

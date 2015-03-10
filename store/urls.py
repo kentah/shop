@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from store import views
 
@@ -12,3 +13,5 @@ urlpatterns = patterns('',
     url(r'^terms/', views.terms, name='terms'),
     url(r'^privacy/', views.privacy, name='privacy'),
 )
+
+urlpatterns += staticfiles_urlpatterns()

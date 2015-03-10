@@ -1,3 +1,55 @@
 {% extends "store/base.html" %}
 
-{% block title %}Home{% endblock %}
+{% load staticfiles %}
+
+<head>
+{% block stylesheets %}
+    <style media="screen" type="text/css">
+    .image {
+	position: absolute;
+	max-width: 100%;
+    }
+    .imgtxt {
+	color: white;
+	left: 0;;
+	font-size: 35px;
+	position: relative;
+	padding: 5px;
+	top: 100px;
+	
+	background: rgba(0,0,0,0.6);
+    }
+    /*.over {
+	font: bold 24px/45px Helvetica, Sans-Serif;
+	letter-spacing: -1px;
+	padding: 10px;*/
+    }
+    </style>
+    {% endblock %}
+</head>
+
+{% block body %}
+
+<div>
+    <img class="image" src="{% static 'img/hanging2.png' %}" />
+    <div class="imgtxt over">
+</p>As a self-taught artist with a love of textiles, I leave no surface unadorned or left plain, be it furniture, walls, bowls, floorcloths, or even curtians.
+</p>
+    </div>
+    <br />
+    <div class="imgtxt over">
+</p>I instantly took to silk-painting the very first time I tried it.
+</p>
+    </div>
+    <br />
+    <div class="imgtxt over">
+	<p>Dyes have a life and mind of their own,  creating unexpected beauty in their wake.
+	</p>
+    </div>
+    <br />
+    <div class="imgtxt over">
+	<p>I was hooked with the artform and the artform hooked me.
+	</p>
+    </div>
+</div>
+{% endblock body %}
