@@ -3,4 +3,4 @@
 #*
 ~*
 *.pyc
-xdb.sqlite3
+db.sqlite3
