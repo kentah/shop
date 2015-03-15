@@ -38,3 +38,8 @@ def terms(request):
 
 def privacy(request):
     return HttpResponse('This is the privacy statement')
+
+def cart(request):
+    msg = 'This is where you view your cart, obviously'
+    context = {'msg': msg}
+    return render(request, 'store/cart.html', context)

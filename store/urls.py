@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^sign-in/', views.sign_in, name='sign_in'),
     url(r'^terms/', views.terms, name='terms'),
     url(r'^privacy/', views.privacy, name='privacy'),
+    url(r'^cart/', views.cart, name='cart'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
