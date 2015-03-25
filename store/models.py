@@ -7,29 +7,34 @@ class Album(models.Model):
     title = models.CharField(max_length=60)
     public = models.BooleanField(default=False)
 
-    def __string__(self):
+    def __str__(self):
         return self.title
 
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
 
-    def __string__(self):
+    def __str__(self):
         return self.tag
     
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
-    image = models.ImageField(upload_to='images/')
-    tags = models.ManyToManyField(Album, blank=True)
+    image = models.ImageField(upload_to='store/static/store_images/')
+    tags = models.ManyToManyField(Tag, blank=True)
     ident = models.CharField(max_length=60, blank=True, null=True) #id for image
-    price = models.DecimalField(max_digits=5, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     created = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=50)
     status = models.BooleanField(default=True)  # True is unsold
     user = models.ForeignKey(User, null=True, blank=True)
 
-    def __string__(self):
+    def thumb(self):    # to display thumbnail in admin
+        thumbnail = '<img src="%s" width="100" height="100" />' % (self.image)
+        return thumbnail
+    thumb.allow_tags = True
+
+    def __str__(self):
         return self.image.name
 
 class AlbumAdmin(admin.ModelAdmin):
@@ -42,6 +47,10 @@ class TagAdmin(admin.ModelAdmin):
 
 
 class ImageAdmin(admin.ModelAdmin):
+
+
+
+
     search_fields = ['title', 'price', 'ident', 'status']
-    list_display = ['__string__', 'title', 'user', 'ident', 'status', 'created']
+    list_display = ['__str__', 'thumb', 'title', 'user', 'ident', 'status', 'created']
     list_filter = ['tags']

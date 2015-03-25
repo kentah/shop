@@ -1,25 +1,37 @@
 {% extends "store/base.html" %}
 
+{% load static %}
+
 {% block title %}Shop{% endblock %}
+
+{% block stylesheets %}
+
+<link  href="{% static 'css/shopstyle.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+{% endblock stylesheets %}
 
 {% block body %}
 
 <div><h1 class="text-center">For your consideration <br /> <small> A smattering of color</small></h1></div>
 
-<h2 class="text-center">Body Decoration</h2>
+<div class="enc">
+<div class="bod-dec">
+	<h2>Body Decoration</h2>
+
+
+</div>
+</div>	
 
 
 
+<div class="dwel-dec">
+<h2>Dwelling Decoration</h2>
+</div>
 
 
 
-<h2 class="text-center">Dwelling Decoration</h2>
-
-
-
-
-
-<h2 class="text-center">Other Decoration</h2>
-
+<div class="oth-dec">
+<h2>Other Decoration</h2>
+</div>
 
 {% endblock body %}
