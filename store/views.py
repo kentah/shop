@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-
+from .models import Image
+from .forms import Join
 
 def index(request):
     msg = 'This is the main page'
@@ -18,15 +19,29 @@ def gallery(request):
     context = {'msg': msg}
     return render(request, 'store/gallery.html', context)
 
+    ####################  figure out image display  ##################
+
+
 def shop(request):
+    image = Image()
     msg = 'This is the shopping page'
-    context = {'msg': msg}
+    context = {'image': image.image, 'title': image.title }           
     return render(request, 'store/shop.html', context)
 
 def join(request):
-    msg = 'This is where you sign up to join'
-    context = {'msg': msg}
-    return render(request, 'store/join.html', context)
+    #context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = Join(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+    else:
+        form = Join()
+
+    return render(request, 'store/join.html', {'form': form})
 
 def sign_in(request):
     msg = 'This is where users log in'

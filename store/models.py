@@ -48,9 +48,13 @@ class TagAdmin(admin.ModelAdmin):
 
 class ImageAdmin(admin.ModelAdmin):
 
-
-
-
     search_fields = ['title', 'price', 'ident', 'status']
     list_display = ['__str__', 'thumb', 'title', 'user', 'ident', 'status', 'created']
     list_filter = ['tags']
+
+class JoinForm(models.Model):
+    first = models.CharField(max_length=60, blank=True, null=True)
+    last = models.CharField(max_length=60, blank=True, null=True)
+    user_name = models.CharField(max_length=20, blank=True, null=True)
+    pass_word = models.CharField(max_length=10, blank=True, null=True)
+    email = models.CharField(max_length=60, blank=True, null=True)

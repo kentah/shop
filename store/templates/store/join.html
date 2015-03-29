@@ -6,4 +6,28 @@
 
 <p>{{ msg }}</p>
 
+
+<form class="form-group" id="join", action="/join/" mehtod="post">
+
+	{% csrf_token %}
+	<div class="form-group" style="margin-left:300px; margin-right:300px;">
+	<input id="first" type="text" class="form-control name="name" placeholder="First Name">
+	</div>
+	<div class="form-group" style="margin-left:300px; margin-right:300px;">
+	<input id="last" type="text" class="form-control name="last" placeholder="Last Name">
+</div>
+	<div class="form-group" style="margin-left:300px; margin-right:300px;">
+	<input id="user_name" type="text" class="form-control name="user_name" placeholder="Desired Username">
+	</div>
+	<div class="form-group" style="margin-left:300px; margin-right:300px;">
+	<input id="pass_word" type="password" class="form-control name="pass_word" placeholder="Desired Password">
+	</div>
+	<div class="form-group" style="margin-left:300px; margin-right:300px;">
+	<input id="email" type="email" class="form-control name="email" placeholder="Email Address">
+	</div>
+	<button type="submit" class="btn btn-default btn-lg">Submit</button>
+
+
+</form>
+
 {% endblock body %}
