@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from .models import Image
+
+from .models import Image, JoinForm
 from .forms import Join
 
 def index(request):
