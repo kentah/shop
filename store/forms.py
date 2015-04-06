@@ -13,7 +13,7 @@ class Join(forms.models.ModelForm):
 	class Meta:
 
 		model = JoinForm
-		fields = ('first','last', 'user_name', 'pass_word',)# 'email']
+		fields = ('first','last', 'user_name', 'pass_word', 'email')
 		widgets = {
 			'first': forms.fields.TextInput(attrs={
 				'placeholder': 'Enter your first name',
@@ -27,8 +27,12 @@ class Join(forms.models.ModelForm):
 				'placeholder': 'Enter your desired username',
 				'class': 'form-control form-group',
 				}),
-			'pass_word': forms.fields.TextInput(attrs={
+			'pass_word': forms.PasswordInput(attrs={
 				'placeholder': 'Enter your desired password',
+				'class': 'form-control form-group',
+				}),
+			'email': forms.fields.TextInput(attrs={
+				'placeholder': 'Enter your email address',
 				'class': 'form-control form-group',
 				})
 			}

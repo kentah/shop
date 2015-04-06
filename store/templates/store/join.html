@@ -5,35 +5,24 @@
 {% block body%}
 
 <p>{{ msg }}</p>
-
-
-<!-- <form class="form-group" id="join" action="/templates/store/join/" mehtod="post"> -->
-
+<div class="#"> <!-- need to incorporate joinstyle.css .hide image -->
 	<form method="POST" action="{% block form_action %}{% endblock %}">
+
 	{% csrf_token %}
-	<!-- <div class="form-group" style="margin-left:300px; margin-right:300px;">
-	<input id="first" type="text" class="form-control name="name" placeholder="First Name" />
-	</div>
-	<div class="form-group" style="margin-left:300px; margin-right:300px;">
-	<input id="last" type="text" class="form-control name="last" placeholder="Last Name" />
-</div>
-	<div class="form-group" style="margin-left:300px; margin-right:300px;">
-	<input id="user_name" type="text" class="form-control name="user_name" placeholder="Desired Username">
-	</div>
-	<div class="form-group" style="margin-left:300px; margin-right:300px;" />
-	<input id="pass_word" type="password" class="form-control name="pass_word" placeholder="Desired Password">
-	</div>
-	<div class="form-group" style="margin-left:300px; margin-right:300px;">
-	<input id="email" type="email" class="form-control name="email" placeholder="Email Address" /> 
-	</div> -->
+
 	{% for field in form %}
 		{{ field.errors }}
 		{{ field.help_text }}
-		<div style="margin:0 5em 0 5em;">
-		{{ field }}
-	</div>
-	{% endfor %}
-	<button style="margin-left:5em;" type="submit" class="btn btn-default btn-lg">Submit</button>
-	</form>
 
+	<div style="margin:0 25em 0 25em;">
+
+		{{ field }}
+
+	</div>
+
+	{% endfor %}
+
+	<button style="margin-left:44em;" type="submit" class="btn btn-default btn-lg">Submit</button>
+	</form>
+</div>
 {% endblock body %}

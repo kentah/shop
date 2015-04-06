@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.contrib.auth.decorators import login_required
 
 from .models import Image, JoinForm
 from .forms import Join
@@ -44,6 +45,8 @@ def join(request):
 
     return render(request, 'store/join.html', {'form': form})
 
+    
+@login_required(login_url='/sign_in')
 def sign_in(request):
     msg = 'This is where users log in'
     context = {'msg': msg}
