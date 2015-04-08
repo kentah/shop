@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^terms/', views.terms, name='terms'),
     url(r'^privacy/', views.privacy, name='privacy'),
     url(r'^cart/', views.cart, name='cart'),
+
     #url(r'^/join_form/$', views.join, name="join_form"),
 )
 

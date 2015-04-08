@@ -1,6 +1,6 @@
 {% extends "store/base.html" %}
 
-{% load static %}
+{% load staticfiles %}
 
 {% block title %}Shop{% endblock %}
 
@@ -20,7 +20,7 @@
 {% if image %}
 <ul>
 	{% for i in image %}
-	<li><img src="{{ i.image }}" />{{ i.title }}</li>
+	<li><img src="{{ i.image.url }}" width="200" height="200" />{{ i.title }} ${{ i.price }}</li>
 	{% endfor image %}
 </ul>
 	{% else %}

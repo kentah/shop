@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 
 from .models import Image, JoinForm
 from .forms import Join
+
 
 def index(request):
     msg = 'This is the main page'
@@ -25,9 +27,8 @@ def gallery(request):
 
 
 def shop(request):
-    image = Image()
-    msg = 'This is the shopping page'
-    context = {'image': image.image, 'title': image.title }           
+    image = Image.objects.all()
+    context = {'image': image}           
     return render(request, 'store/shop.html', context)
 
 def join(request):
@@ -48,7 +49,18 @@ def join(request):
     
 @login_required(login_url='/sign_in')
 def sign_in(request):
-    msg = 'This is where users log in'
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            login(request, user)
+            # redirect to success page
+        else:
+            msg = 'Disabled account'
+    else:
+        msg = 'Invalid login'
+
     context = {'msg': msg}
     return render(request, 'store/sign_in.html', context)
 

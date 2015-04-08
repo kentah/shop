@@ -13,26 +13,33 @@ class Join(forms.models.ModelForm):
 	class Meta:
 
 		model = JoinForm
-		fields = ('first','last', 'user_name', 'pass_word', 'email')
+		fields = ('first_name','last_name', 'username', 'password', 'email')
 		widgets = {
-			'first': forms.fields.TextInput(attrs={
+			'first_name': forms.fields.TextInput(attrs={
 				'placeholder': 'Enter your first name',
 				'class': 'form-control form-group',
 				}),
-			'last': forms.fields.TextInput(attrs={
+			'last_name': forms.fields.TextInput(attrs={
 				'placeholder': 'Enter your last name',
 				'class': 'form-control form-group',
 				}),
-			'user_name': forms.fields.TextInput(attrs={
+			'username': forms.fields.TextInput(attrs={
 				'placeholder': 'Enter your desired username',
 				'class': 'form-control form-group',
 				}),
-			'pass_word': forms.PasswordInput(attrs={
+			'password': forms.PasswordInput(attrs={
 				'placeholder': 'Enter your desired password',
 				'class': 'form-control form-group',
 				}),
+			'password1': forms.PasswordInput(attrs={
+				'placeholder': 'Verify Password',
+				'class': 'form-control form-group'}),
 			'email': forms.fields.TextInput(attrs={
 				'placeholder': 'Enter your email address',
 				'class': 'form-control form-group',
 				})
 			}
+
+class Login(forms.models.ModelForm):
+	pass
+	

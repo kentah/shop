@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
 
-'''
-class Album(models.Model):
-    title = models.CharField(max_length=60)
-    public = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-'''
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
@@ -20,7 +12,7 @@ class Tag(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
-    image = models.ImageField(upload_to='store/static/store_images/')
+    image = models.ImageField(upload_to='media/')
     tags = models.ManyToManyField(Tag, blank=True)
     ident = models.CharField(max_length=60, blank=True, null=True) #id for image
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -36,11 +28,7 @@ class Image(models.Model):
 
     def __str__(self):
         return self.image.name
-'''
-class AlbumAdmin(admin.ModelAdmin):
-    search_fields = ['title','price','status']
-    list_display = ['title']
-'''
+
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ['tag']
@@ -54,12 +42,12 @@ class ImageAdmin(admin.ModelAdmin):
 
 
 class JoinForm(models.Model):
-    first = models.CharField(max_length=60, blank=True, null=True)
-    last = models.CharField(max_length=60, blank=True, null=True)
-    user_name = models.OneToOneField(User)
-    pass_word = models.CharField(max_length=10, blank=True, null=True)
+    first_name = models.CharField(max_length=60, blank=True, null=True)
+    last_name = models.CharField(max_length=60, blank=True, null=True)
+    username = models.CharField(max_length=20, blank=True, null=True)
+    password = models.CharField(max_length=10, blank=True, null=True)
     email = models.EmailField(max_length=60, blank=True, null=True)
 
 
 class JoinAdmin(admin.ModelAdmin):
-    list_display = ['first', 'last']
+    list_display = ['first_name', 'last_name', 'email']
