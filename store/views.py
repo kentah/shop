@@ -12,7 +12,7 @@ def index(request):
     msg = 'This is the main page'
     context = {'msg': msg}
     return render(request, 'store/index.html', context)
-
+'''
 def about(request):
     msg = 'This is the "about" page'
     context = {'msg': msg}
@@ -22,13 +22,15 @@ def gallery(request):
     msg = 'This is the gallery page'
     context = {'msg': msg}
     return render(request, 'store/gallery.html', context)
-
+'''
     ####################  figure out image display  ##################
 
 
 def shop(request):
-    image = Image.objects.all()
-    context = {'image': image}           
+    scarf = Image.objects.all()
+    #scarf = Image.objects.get(tags='scarf')
+    #scarf = Image.scarf_sort()
+    context = {'scarf': scarf}           
     return render(request, 'store/shop.html', context)
 
 def join(request):
@@ -47,7 +49,7 @@ def join(request):
     return render(request, 'store/join.html', {'form': form})
 
     
-@login_required(login_url='/sign_in')
+@login_required(redirect_field_name='sign_in')
 def sign_in(request):
     username = request.POST['username']
     password = request.POST['password']

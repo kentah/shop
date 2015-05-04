@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^store/', include('store.urls')),
     url(r'^admin/', include(admin.site.urls)),
+     url(r'^admin/store/image/media/', include(admin.site.urls)),
     #url(r'*/store/static/store_images/', include('store.urls')),
     #url(r'^templates/store/', include('store.urls')),  #works!
 

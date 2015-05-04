@@ -17,16 +17,15 @@
 <div class="enc">
 <div class="bod-dec">
 	<h2>Body Decoration</h2>
-{% if image %}
+{% if scarf %}
 <ul>
-	{% for i in image %}
-	<li><img src="{{ i.image.url }}" width="200" height="200" />{{ i.title }} ${{ i.price }}</li>
+	{% for i in scarf %}
+	<td><img src="{{ i.image.url }}" width="200" height="200" /></td><li>{{ i.title }} ${{ i.price }}</li>
 	{% endfor image %}
 </ul>
 	{% else %}
 	<p style="font-family: Helvetica;">No products are available</p>
 	{% endif %}
-	<!--<img src="{% static 'store_images/pillows1.jpg' %}" /> -->
 
 </div>
 </div>	

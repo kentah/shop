@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 from django.contrib import admin
 
 
@@ -12,7 +13,7 @@ class Tag(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to='media')
     tags = models.ManyToManyField(Tag, blank=True)
     ident = models.CharField(max_length=60, blank=True, null=True) #id for image
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -25,6 +26,12 @@ class Image(models.Model):
         thumbnail = '<img src="%s" width="100" height="100" />' % (self.image)
         return thumbnail
     thumb.allow_tags = True
+
+    def scarf_sort(self):
+        x = self.image
+        for s in x.filter(tags='scarf'):
+            self.scarf = s
+        return self.scarf
 
     def __str__(self):
         return self.image.name
