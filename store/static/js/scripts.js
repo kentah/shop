@@ -66,6 +66,8 @@ $('.panel-thumbnail>a').click(function(e){
 
 
 
+
+
 /* google maps */
 google.maps.visualRefresh = true;
 

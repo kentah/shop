@@ -2,13 +2,18 @@
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 @import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
 
+.major {
+	background-color: #00DBF9;
+}
+
 .bod-dec {
+
 	width: 50em;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	font-family: 'Bitter', serif;
-	border-radius: 5px;
+	border-radius: 7px;
 	border: solid 2px;
 	padding: 10px;
 }
@@ -22,7 +27,7 @@
 	text-align: center;
 	font-family: 'Bitter', serif;
 	height: auto;
-	border-radius: 5px;
+	border-radius: 7px;
 	border: solid 2px;
 	padding: 10px;
 }
@@ -35,12 +40,54 @@
 	text-align: center;
 	font-family: 'Bitter', serif;
 	height: auto;
-	border-radius: 5px;
+	border-radius: 7px;
 	border: solid 2px;	
 	padding: 10px;
 }
 
 .enc {
 
+	position: absolute;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 
 }
+
+/* for image enlargement on the shop page */
+
+.enbiggen {
+	width: 800px;
+	height: 800px;
+}
+
+.large-image-bg {
+  background-color: #333;
+  filter: alpha(opacity=70);
+  left: 0;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.large-image-wrapper {
+  background-color: white;
+  border: 3px solid #444;
+  box-shadow: 0 0 5px #222;
+  left: 50%;
+  padding: 3px;
+  position: fixed;
+  top: 50%;
+  z-index: 1001;
+}
+.large-image-close {
+  background: transparent url("../img/popup-close-icon.png") no-repeat 0 0;
+  height: 32px;
+  position: absolute;
+  right: -16px;
+  text-indent: -9999px;
+  top: -16px;
+  width: 32px;
+} 
+

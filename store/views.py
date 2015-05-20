@@ -4,7 +4,7 @@ from django.template import RequestContext, loader
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 
-from .models import Image, JoinForm
+from .models import Image, JoinForm, Tag
 from .forms import Join
 
 
@@ -27,10 +27,16 @@ def gallery(request):
 
 
 def shop(request):
-    scarf = Image.objects.all()
-    #scarf = Image.objects.get(tags='scarf')
-    #scarf = Image.scarf_sort()
-    context = {'scarf': scarf}           
+    #scarf = Image.objects.all()
+    #image2 = Image.objects.get(trying and failing to get image field)
+    scarf = Image.objects.filter(tags=2)  #2scarf 3bowl 4decor 5gallery 6sold
+    bowl = Image.objects.filter(tags=3)
+    decor = Image.objects.filter(tags=4)
+    #gallery = Image.objects.filter(tags=5)
+    context = {'scarf': scarf,
+               'bowl': bowl,
+               'decor': decor,
+               }           
     return render(request, 'store/shop.html', context)
 
 def join(request):

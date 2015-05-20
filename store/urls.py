@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
 
 from store import views
 
@@ -13,7 +14,8 @@ urlpatterns = patterns('',
     url(r'^terms/', views.terms, name='terms'),
     url(r'^privacy/', views.privacy, name='privacy'),
     url(r'^cart/', views.cart, name='cart'),
-    url(r'^media/media/(?P<pk>\d+)/$', views.shop, name='image'),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT}),
     #url(r'^/join_form/$', views.join, name="join_form"),
 )
 

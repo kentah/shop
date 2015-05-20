@@ -41,5 +41,6 @@ class Join(forms.models.ModelForm):
 			}
 
 class Login(forms.models.ModelForm):
+        
 	pass
 	

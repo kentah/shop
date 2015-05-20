@@ -13,7 +13,7 @@ class Tag(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
-    image = models.ImageField(upload_to='media')
+    image = models.ImageField(upload_to='')
     tags = models.ManyToManyField(Tag, blank=True)
     ident = models.CharField(max_length=60, blank=True, null=True) #id for image
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -21,10 +21,12 @@ class Image(models.Model):
     rating = models.IntegerField(default=50)
     status = models.BooleanField(default=True)  # True is unsold
     user = models.ForeignKey(User, null=True, blank=True)
+    description = models.TextField(default='A lovely description')
 
-    def thumb(self):    # to display thumbnail in admin
-        thumbnail = '<img src="%s" width="100" height="100" />' % (self.image)
-        return thumbnail
+    def thumb(self):
+        if self.image:
+            return u'<img src="%s" height="100" width="100" />' % self.image.url
+    thumb.short_description = 'Thumb'
     thumb.allow_tags = True
 
     def scarf_sort(self):

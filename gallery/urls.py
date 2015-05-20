@@ -6,19 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'gallery.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^store/', include('store.urls')),
     url(r'^admin/', include(admin.site.urls)),
-     url(r'^admin/store/image/media/', include(admin.site.urls)),
-    #url(r'*/store/static/store_images/', include('store.urls')),
-    #url(r'^templates/store/', include('store.urls')),  #works!
-
-) 
-
-#urlpatterns += staticfiles_urlpatterns()
-
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-#urlpatterns += static(settings.MEDIA_ROOT, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

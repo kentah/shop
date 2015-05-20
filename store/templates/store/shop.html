@@ -15,31 +15,48 @@
 <div><h1 class="text-center">For your consideration <br /> <small> A smattering of color</small></h1></div>
 
 <div class="enc">
-<div class="bod-dec">
-	<h2>Body Decoration</h2>
-{% if scarf %}
-<ul>
-	{% for i in scarf %}
-	<td><img src="{{ i.image.url }}" width="200" height="200" /></td><li>{{ i.title }} ${{ i.price }}</li>
-	{% endfor image %}
-</ul>
-	{% else %}
-	<p style="font-family: Helvetica;">No products are available</p>
-	{% endif %}
-
+	<div class="bod-dec container inline-block col-xs-6">
+		<h2>Body Decoration</h2>
+		
+		{% if scarf %}
+		<!-- <ul> -->
+		{% for i in scarf %}
+		<div class="inline-block pull-left"><a href="{{ i.image.url }}" {{ i.title }}target="_blank"><img src="{{ i.image.url }}" width="200" height="200" /><div>{{ i.title }} ${{ i.price }}</div></div></a>
+		{% endfor image %}
+		
+		{% else %}
+		<p style="font-family: Helvetica;">No products are available</p>
+		{% endif %}
+		
+		
+	</div>
+	<div class="dwel-dec container inline-block col-xs-6">
+		<h2>Dwelling Decoration</h2>
+		{% if decor %}
+		
+		{% for d in decor %}
+		<dv class="inline-block pull-left"><a href="{{ d.image.url }}" target="_blank"><img src="{{ d.image.url }}" width="200" height="200" /><div>{{ d.title }} ${{ d.price }}</div></a>
+			{% endfor image %}
+			
+			{% else %}
+			<p style="font-family: Helvetica;">No products are available</p>
+			{% endif %}
+	</div>
+	<div class="oth-dec container inline-block col-xs-6" style="clear:left;">
+		<h2>Other Decoration</h2>
+		{% if bowl %}
+		
+		{% for b in bowl %}
+		<div class="inline-block pull-left"><a href="{{b.image.url }}" target="_blank"><img src="{{ b.image.url }}" width="200" height="200" /><div>{{ b.title }} ${{ b.price }}</div></a>
+			{% endfor image %}
+			
+			{% else %}
+			<p style="font-family: Helvetica;">No products are available</p>
+			{% endif %}
+		</div>
+	</div>
+		</dv>
 </div>
-</div>	
 
-
-
-<div class="dwel-dec">
-<h2>Dwelling Decoration</h2>
-</div>
-
-
-
-<div class="oth-dec">
-<h2>Other Decoration</h2>
-</div>
-
-{% endblock body %}
+	{% endblock body %}
+	
