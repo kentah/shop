@@ -22,6 +22,7 @@ class Image(models.Model):
     status = models.BooleanField(default=True)  # True is unsold
     user = models.ForeignKey(User, null=True, blank=True)
     description = models.TextField(default='A lovely description')
+    slug = models.SlugField(max_length=40, default=True)
 
     def thumb(self):
         if self.image:

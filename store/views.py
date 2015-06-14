@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.views.generic.detail import DetailView
+from django.utils import timezone
 
 from .models import Image, JoinForm, Tag
 from .forms import Join
@@ -12,19 +14,6 @@ def index(request):
     msg = 'This is the main page'
     context = {'msg': msg}
     return render(request, 'store/index.html', context)
-'''
-def about(request):
-    msg = 'This is the "about" page'
-    context = {'msg': msg}
-    return render(request, 'store/about.html', context)
-
-def gallery(request):
-    msg = 'This is the gallery page'
-    context = {'msg': msg}
-    return render(request, 'store/gallery.html', context)
-'''
-    ####################  figure out image display  ##################
-
 
 def shop(request):
     #scarf = Image.objects.all()
@@ -37,7 +26,13 @@ def shop(request):
                'bowl': bowl,
                'decor': decor,
                }           
-    return render(request, 'store/shop.html', context)
+    return render(request, 'store/shop.html', context) 
+
+def shop_detail(request):
+     
+    msg = 'hey'
+    return render(request, 'store/shop_detail.html', {'msg': msg})
+
 
 def join(request):
     #context = RequestContext(request)
@@ -82,3 +77,15 @@ def cart(request):
     msg = 'This is where you view your cart, obviously'
     context = {'msg': msg}
     return render(request, 'store/cart.html', context)
+
+#the below may work when clicking on an image and creating a page
+"""
+class ShopView(DetailView):
+
+    model = Image
+
+    def shop_detail(self, **kwargs):
+        context = super(ShopView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
+"""

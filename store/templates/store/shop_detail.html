@@ -1,0 +1,19 @@
+{% extends "store/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Shop{% endblock %}
+
+{% block stylesheets %}
+
+<link  href="{% static 'css/shopstyle.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+{% endblock stylesheets %}
+
+{% block body %}
+
+{{ msg }}
+<img src="{{ image.url }}" />
+
+{% endblock body %}
+	

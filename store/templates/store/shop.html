@@ -21,7 +21,7 @@
 		{% if scarf %}
 		<!-- <ul> -->
 		{% for i in scarf %}
-		<div class="inline-block pull-left"><a href="{{ i.image.url }}" {{ i.title }}target="_blank"><img src="{{ i.image.url }}" width="200" height="200" /><div>{{ i.title }} ${{ i.price }}</div></div></a>
+		<div class="inline-block pull-left"><img src="{{ i.image.url }}" width="200" height="200" /><div>{{ i.title }} ${{ i.price }}</div></div></a>
 		{% endfor image %}
 		
 		{% else %}
@@ -35,7 +35,7 @@
 		{% if decor %}
 		
 		{% for d in decor %}
-		<dv class="inline-block pull-left"><a href="{{ d.image.url }}" target="_blank"><img src="{{ d.image.url }}" width="200" height="200" /><div>{{ d.title }} ${{ d.price }}</div></a>
+		<dv class="inline-block pull-left"><a href="{% url 'shop_detail' %}"><img src="{{ d.image.url }}" width="200" height="200" /><div>{{ d.title }} ${{ d.price }}</div></a>
 			{% endfor image %}
 			
 			{% else %}
