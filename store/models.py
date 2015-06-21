@@ -21,7 +21,10 @@ class Image(models.Model):
     rating = models.IntegerField(default=50)
     status = models.BooleanField(default=True)  # True is unsold
     user = models.ForeignKey(User, null=True, blank=True)
-    description = models.TextField(default='A lovely description')
+    description = models.TextField(default='''
+    The description can be as long or short as you like. 
+    This is the default for now.
+    ''')
     slug = models.SlugField(max_length=40, default=True)
 
     def thumb(self):
@@ -29,13 +32,13 @@ class Image(models.Model):
             return u'<img src="%s" height="100" width="100" />' % self.image.url
     thumb.short_description = 'Thumb'
     thumb.allow_tags = True
-
+    '''
     def scarf_sort(self):
         x = self.image
         for s in x.filter(tags='scarf'):
             self.scarf = s
         return self.scarf
-
+    '''
     def __str__(self):
         return self.image.name
 

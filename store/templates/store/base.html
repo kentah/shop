@@ -38,8 +38,6 @@
 		    <li><a href="{% url 'index' %}">Home</a></li>
 		    <li><a href="{% url 'index' %}#section2">About</a></li>  <!-- fix -->
 		    <li><a href="{% url 'shop' %}">Shop</a></li>
-		    <li><a href="{% url 'join' %}">Join</a></li>
-		    <li><a href="{% url 'sign_in' %}">Sign In</a></li>
 		    <li><a href="{% url 'index' %}#section3">Contact</a></li>
 		    <li><a href="{% url 'cart' %}"><span class="glyphicon glyphicon-shopping-cart" aria-hiden="true" style="color:white;"></span></a></li>
 		</ul>
@@ -89,8 +87,11 @@
 	    </header>
 	    <body class="{% block body_class %}{% endblock %}" {% block body_attributes %}{% endblock %}>
 		{% block body %}
+		   <p><a href="{% url 'terms' %}">Terms & Conditions</a></p> 
 		{% endblock %}
+		    
 	    </body>
+
 	        <!-- script references -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>

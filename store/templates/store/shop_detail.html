@@ -11,9 +11,25 @@
 {% endblock stylesheets %}
 
 {% block body %}
-
-{{ msg }}
-<img src="{{ image.url }}" />
-
+<div>	
+	<div class="detail-container">
+		<div class="detail-img">
+			<img src="{{ image.url }}" />
+			
+		</div>
+		<div class="detail-txt">
+			<h2>{{ title }}</h2>
+			<h4>${{ price }}</h4>
+			<br />
+			<br />
+			<p>{{ description }}</p>
+			<br />
+			<br />
+			<br />
+			<br />
+			<button type="button" class="btn btn-primary btn-lg">Add to cart</button>
+		</div>
+	</div>
+</div>
 {% endblock body %}
 	
