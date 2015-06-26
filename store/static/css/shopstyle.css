@@ -8,7 +8,7 @@
 
 .dec-img {
 	padding: 20px;
-	border: 1px solid black;
+	border: 1px dotted #69278A;
 	margin: .5px;
 
 }
@@ -26,7 +26,7 @@
 	text-align: center;
 	font-family: 'Bitter', serif;
 	border-radius: 7px;
-	border: solid 2px;
+	border: dashed 2px #D273FF;
 	padding: 10px;
 	clear: both;
 }
@@ -38,7 +38,7 @@
 	text-align: center;
 	font-family: 'Bitter', serif;
 	border-radius: 7px;
-	border: solid 2px;
+	border: dashed 2px #D273FF;
 	padding: 10px;
 	clear: both;
 }
@@ -50,7 +50,7 @@
 	text-align: center;
 	font-family: 'Bitter', serif;
 	border-radius: 7px;
-	border: solid 2px;
+	border: dashed 2px #D273FF;
 	padding: 10px;
 	clear: both;
 }

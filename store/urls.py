@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
         'document_root': settings.MEDIA_ROOT}),
     url(r'^shop_detail/(\w\d+)/$', views.shop_detail, name='shop_detail'),
+    #url(r'^shop_detail/(?P<slug>[\w\d]+)/$', views.shop_detail, name='shop_detail'),
     #url(r'^shop/$', ShopView.as_view(), name='shop'),
     #url(r'^shop/(?P<slug>[\w-]+)/$', views.shop_detail, name='shop_detail'),
 )

@@ -53,31 +53,11 @@ def cart(request):
     context = {'msg': msg}
     return render(request, 'store/cart.html', context)
 
-#the below may work when clicking on an image and creating a page
-'''
-class ShopView(DetailView):
+# cart ####
 
-    model = Image
 
-    def shop(self):
-        #scarf = Image.objects.all()
-        #image2 = Image.objects.get(trying and failing to get image field)
-        scarf = Image.objects.filter(tags=2)  #2scarf 3bowl 4decor 5gallery 6sold
-        bowl = Image.objects.filter(tags=3)
-        decor = Image.objects.filter(tags=4)
-        #gallery = Image.objects.filter(tags=5)
-        context = {'scarf': scarf,
-                   'bowl': bowl,
-                   'decor': decor,
-               }
-        
-        return render(request, 'store/shop.html', context) 
 
-    def shop_detail(self):
-        img = get_object_or_404(Image, id=id)
-        msg = 'hey'
-        return render(request, 'store/shop_detail.html', {'msg':msg})
-'''
+############
 
 
 def terms(request):
